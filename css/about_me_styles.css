@@ -94,10 +94,23 @@ main {
     min-height: 70vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    
+}
+
+.about-photo {
+    flex: 3;
+}
+
+.about-photo img {
+    width: 250px;
+    height: 150px;
+    border-radius: 70%;
 }
 
 .about-text {
+    flex: 6.5;
     display: flex;
     justify-content: space-between;
 }
@@ -129,8 +142,3 @@ footer {
 }
 
 
-.about-photo img {
-    width: 250px;
-    height: 150px;
-    border-radius: 70%;
-}
