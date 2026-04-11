@@ -34,6 +34,7 @@
 
 html {
     min-height: 100vh;
+    overscroll-behavior: none;
 }
 
 body {
@@ -44,8 +45,9 @@ body {
     flex-direction: column;
     justify-content: space-between;
     max-width: 100vw;
-    min-height: 100%;
+    min-height: 100vh;
     margin: 0 auto;
+    overscroll-behavior: none;
 }
 
 img {
@@ -61,11 +63,13 @@ header {
     color: black;
 }
 
-.logo-text {
+.logo-text a {
     font-size: 1.2rem;
     font-family: "Ubuntu", sans-serif;
     font-weight: 700;
     font-style: normal;
+    text-decoration: none;
+    color: black;
 }
 
 .nav-bar ul {
@@ -95,7 +99,7 @@ main {
 
 .about-text {
     display: flex;
-    gap: 3%;
+    justify-content: space-between;
 }
 
 .about {
@@ -105,11 +109,11 @@ main {
 .skills-interest {
     max-width: 30%;
     display: flex;
+    gap: 15%;
 }
 
 footer {
     margin-top: 3vh;
-    height: 7vh;
     padding: 5px;
     display: flex;
     flex-direction: column;
