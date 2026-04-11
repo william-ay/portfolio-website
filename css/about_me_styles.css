@@ -1,0 +1,132 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Fonts used (Ubuntu & Monospace Static) were gotten from Google Fonts  */
+
+.space-mono-regular {
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.space-mono-bold {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.space-mono-regular-italic {
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.ubuntu-bold {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Imported Fonts above */
+
+html {
+    min-height: 100vh;
+}
+
+body {
+    font-family: "Space Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 100vw;
+    min-height: 100%;
+    margin: 0 auto;
+}
+
+img {
+    max-width: 100%;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    color: black;
+}
+
+.logo-text {
+    font-size: 1.2rem;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.nav-bar ul {
+    list-style-type: none;
+    display: flex;
+    gap: 5px;
+}
+
+.nav-bar ul li {
+    padding: 5px;
+}
+
+.nav-bar ul li a {
+    font-size: 1.15rem;
+    color: #3c3c3c;
+    text-decoration: none;
+}
+
+main {
+    max-width: 1400px;
+    margin: 0 auto; 
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.about-text {
+    display: flex;
+    gap: 3%;
+}
+
+.about {
+    max-width: 65%;
+}
+
+.skills-interest {
+    max-width: 30%;
+    display: flex;
+}
+
+footer {
+    margin-top: 3vh;
+    height: 7vh;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    background-color: #303841;
+    color: white;
+}
+
+.copy {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+.about-photo img {
+    width: 250px;
+    height: 150px;
+    border-radius: 70%;
+}
