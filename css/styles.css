@@ -63,11 +63,13 @@ header {
     color: black;
 }
 
-.logo-text {
+.logo-text a {
     font-size: 1.2rem;
     font-family: "Ubuntu", sans-serif;
     font-weight: 700;
     font-style: normal;
+    text-decoration: none;
+    color: black;
 }
 
 .nav-bar ul {
