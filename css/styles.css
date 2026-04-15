@@ -7,27 +7,27 @@
 /* Fonts used (Ubuntu & Monospace Static) were gotten from Google Fonts  */
 
 .space-mono-regular {
-  font-family: "Space Mono", monospace;
-  font-weight: 400;
-  font-style: normal;
+    font-family: "Space Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .space-mono-bold {
-  font-family: "Space Mono", monospace;
-  font-weight: 700;
-  font-style: normal;
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
+    font-style: normal;
 }
 
 .space-mono-regular-italic {
-  font-family: "Space Mono", monospace;
-  font-weight: 400;
-  font-style: italic;
+    font-family: "Space Mono", monospace;
+    font-weight: 400;
+    font-style: italic;
 }
 
 .ubuntu-bold {
-  font-family: "Ubuntu", sans-serif;
-  font-weight: 700;
-  font-style: normal;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 700;
+    font-style: normal;
 }
 
 /* Imported Fonts above */
@@ -61,6 +61,7 @@ header {
     padding-right: 15px;
     padding-top: 10px;
     color: black;
+    align-items: center;
 }
 
 .logo-text a {
@@ -89,8 +90,8 @@ header {
 }
 
 main {
-    max-width: 1400px;
-    margin: 0 auto; 
+    max-width: 90%;
+    margin: 0 auto;
     min-height: 70vh;
     display: flex;
     flex-direction: column;
@@ -110,7 +111,7 @@ main {
     /* ? */
 }
 
-.about-me-text h1{
+.about-me-text h1 {
     font-size: 2.5rem;
     margin-bottom: 10px;
 }
@@ -132,27 +133,30 @@ main {
     margin-top: 7px;
 }
 
-
 .about-me-link {
     list-style-type: none;
     display: flex;
     gap: 10px;
 }
 
-.about-me-link img {
-    width: 20px;
-    height: 20px;
-    color: white;
+.about-me-link2 {
+    display: none;
 }
 
 .about-me-link li {
-    width: 130px;
+    width: 13%;
     height: 40px;
     background-color: purple;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 15px;
+}
+
+.about-me-link img {
+    width: 14%;
+    height: 50%;
+    color: white;
 }
 
 .about-me-link li:first-child {
@@ -163,17 +167,15 @@ main {
     background-color: rgb(231, 17, 17);
 }
 
-
 .about-me-link li:last-child {
     background-color: rgb(82, 17, 129);
 }
 
-
 .about-me-link li:nth-child(3) {
-    width: 170px
+    width: 15%;
 }
 
-.about-me-link li a{
+.about-me-link li a {
     font-size: 0.85rem;
     text-decoration: none;
     color: white;
@@ -194,14 +196,17 @@ main {
 }
 
 .project-containers div {
+    width: 100%;
     display: flex;
     flex-direction: column;
     /* justify-content:; */
     align-items: center;
-    gap: 2px;
+    align-content: space-between;
+    justify-content: space-between;
+    /*gap: 2px;*/
     border: black 3px solid;
     border-radius: 8px;
-    width: 400px;
+    width: 30%;
     height: 175px;
     transition: 0.3s ease;
 }
@@ -212,17 +217,18 @@ main {
 
 .project-containers div img {
     width: 100%;
-    height: 145px;
+    height: 80%;
     border-radius: 3px;
     object-fit: cover;
 }
 
 .project-containers div p {
-    font-size: 0.95rem;
+    font-size: 1rem;
+    padding-bottom: 5px;
 }
 
-.cerifications {
-    
+.certifications {
+    display: none;
 }
 
 .cert-heading {
@@ -234,7 +240,6 @@ main {
     gap: 15px;
 }
 
- 
 .cert-containers div {
     display: flex;
     flex-direction: column;
@@ -243,7 +248,7 @@ main {
     gap: 5px;
     border: black 3px solid;
     border-radius: 5px;
-    width: 400px;
+    width: 30%;
     height: 175px;
     transition: 0.3s ease;
 }
@@ -260,6 +265,7 @@ main {
 }
 
 footer {
+    width: 100%;
     min-height: 10vh;
     margin-top: 3vh;
     padding: 5px;
@@ -270,8 +276,247 @@ footer {
     justify-content: center;
     background-color: #303841;
     color: white;
+    font-size: 1rem;
 }
 
 .copy {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "Courier New", Courier, monospace;
+}
+
+@media (max-width: 576px) {
+    .about-me-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .about-me {
+        align-items: start;
+    }
+
+    .bout-links {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .about-me-link li {
+        width: 30vw;
+        height: 35px;
+        background-color: purple;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .about-me-link li a {
+        font-size: 1rem;
+    }
+
+    .about-me-link img {
+        width: 14%;
+        height: 50%;
+        color: white;
+    }
+
+    .about-me-link li:last-child {
+        display: none;
+    }
+
+    .about-me-link2 li a {
+        font-size: 1rem;
+        text-decoration: none;
+        color: white;
+    }
+
+    .about-me-link2 {
+        list-style-type: none;
+        display: flex;
+        gap: 10px;
+    }
+
+    .about-me-link2 {
+        display: flex;
+    }
+
+    .about-me-link2 img {
+        width: 20px;
+        height: 20px;
+        color: white;
+    }
+
+    .about-me-link2 li {
+        width: 40vw;
+        height: 35px;
+        background-color: purple;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .about-me-link2 li:last-child {
+        background-color: rgb(82, 17, 129);
+    }
+
+    .about-me-link2 li {
+        width: 150px;
+    }
+
+    /* made use of 2 flex boxes for the links to display in 2 rows
+       will change after updating knwoledge on grid
+    */
+
+    html {
+        font-size: 0.78rem;
+    }
+
+    .logo-text a {
+        font-size: 1.05rem;
+    }
+
+    .nav-bar ul li a {
+        font-size: 1rem;
+    }
+
+    .project-heading {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .project-containers div {
+        width: 100%;
+        display: flex;
+        width: 80%;
+        height: 200px;
+    }
+
+    .project-containers {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .project-containers div p {
+        flex-direction: row;
+        font-size: 1.1rem;
+    }
+
+    .project-containers div {
+        transition: none;
+    }
+
+    .project-containers div:hover {
+        scale: none;
+    }
+
+    footer {
+        text-align: center;
+        gap: 10px;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+    .about-me {
+        align-items: center;
+    }
+
+    .logo-text a {
+        font-size: 1.05rem;
+    }
+
+    .nav-bar ul li a {
+        font-size: 1rem;
+    }
+
+    .project-heading {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .bout-links {
+        margin-top: 5px;
+    }
+
+    .about-me-link li {
+        width: 25vw;
+        height: 35px;
+        background-color: purple;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .about-me-link li:last-child {
+        width: 30vw;
+    }
+
+    .project-containers div {
+        width: 100%;
+        display: flex;
+        width: 70%;
+        height: 175px;
+    }
+
+    .project-containers div p {
+        font-size: 0.95rem;
+    }
+
+    .project-containers {
+        flex-direction: column;
+        align-items: center;
+        font-size: 0.9rem;
+    }
+
+    .project-containers div p {
+        flex-direction: row;
+        font-size: 0.9rem;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1100px) {
+    .about-me-link li {
+        width: 20vw;
+        height: 35px;
+        background-color: purple;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .about-me-link li:last-child {
+        width: 25vw;
+    }
+
+    .project-containers div {
+        width: 80vw;
+    }
+
+    .project-containers div p {
+        text-align: center;
+        font-size: 0rem;
+    }
+
+    .project-containers div p:last-child,
+    .project-containers div p:nth-child(2) {
+        text-align: center;
+        font-size: 1rem;
+        padding-bottom: 10px;
+    }
+
+    .project-containers div img {
+        width: 100%;
+        height: 70%;
+    }
+}
+
+/*Laptops & Devices with a screen size ranging 1025px and 1440px */
+
+@media (min-width: 1025px) and (max-width: 1440px) {
+    /*.project-containers div p {
+        font-size: 0.8rem;
+    }
+    */
 }
