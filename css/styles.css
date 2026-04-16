@@ -475,6 +475,9 @@ footer {
     }
 }
 
+/*Tablets & Devices with a screen size ranging 769px and 1100px */
+
+
 @media (min-width: 769px) and (max-width: 1100px) {
     .about-me-link li {
         width: 20vw;
@@ -512,11 +515,4 @@ footer {
     }
 }
 
-/*Laptops & Devices with a screen size ranging 1025px and 1440px */
 
-@media (min-width: 1025px) and (max-width: 1440px) {
-    /*.project-containers div p {
-        font-size: 0.8rem;
-    }
-    */
-}
