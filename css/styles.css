@@ -516,3 +516,25 @@ footer {
 }
 
 
+@media (min-width: 1240px) {
+    .about-me-link li {
+        width: 11%;
+        height: 40px;
+        background-color: purple;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    .about-me-link img {
+        width: 14%;
+        height: 50%;
+        color: white;
+    }  
+   
+   .about-me-link li:last-child{
+       width: 13%;
+   }
+}
+
