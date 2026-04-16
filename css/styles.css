@@ -227,6 +227,11 @@ main {
     padding-bottom: 5px;
 }
 
+.project-containers div p a {
+    text-decoration: none;
+    color: black;
+}
+
 .certifications {
     display: none;
 }
@@ -401,6 +406,7 @@ footer {
         flex-direction: row;
         font-size: 1.1rem;
     }
+
 
     .project-containers div {
         transition: none;
