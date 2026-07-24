@@ -4,33 +4,23 @@
     padding: 0;
 }
 
-/* Fonts used (Ubuntu & Monospace Static) were gotten from Google Fonts  */
-
 .space-mono-regular {
-  font-family: "Space Mono", monospace;
-  font-weight: 400;
-  font-style: normal;
+    font-family: "Space Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .space-mono-bold {
-  font-family: "Space Mono", monospace;
-  font-weight: 700;
-  font-style: normal;
-}
-
-.space-mono-regular-italic {
-  font-family: "Space Mono", monospace;
-  font-weight: 400;
-  font-style: italic;
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
+    font-style: normal;
 }
 
 .ubuntu-bold {
-  font-family: "Ubuntu", sans-serif;
-  font-weight: 700;
-  font-style: normal;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 700;
+    font-style: normal;
 }
-
-/* Imported Fonts above */
 
 html {
     min-height: 100vh;
@@ -62,7 +52,6 @@ header {
     padding-top: 10px;
     color: black;
     align-items: center;
-    gap:10px;
 }
 
 .logo-text a {
@@ -92,184 +81,102 @@ header {
 
 main {
     max-width: 90%;
-    margin: 0 auto; 
-    min-height: 80vh;
+    margin: 0 auto;
+    margin-top: 30px;
+    min-height: 70vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 25px;
+}
+
+.articles-heading {
+    margin-bottom: 5px;
+}
+
+.article-list {
+    display: flex;
+    flex-direction: column;
     gap: 20px;
 }
 
-.about-photo {
-    width: 170px;
-    height: 170px;
+.article-card {
     display: flex;
-    justify-content: center;
+    flex-direction: row-reverse;
     align-items: center;
+    gap: 14px;
+    border-bottom: 1px solid #e2e2df;
+    padding: 16px 0;
+    text-decoration: none;
+    color: black;
 }
 
-.about-photo img {
-    width: 100%;
-    height: 100%;
-    border-radius: 70%;
+.article-card:hover h3 {
+    text-decoration: underline;
 }
 
+.article-thumb {
+    width: 110px;
+    height: 74px;
+    object-fit: cover;
+    border-radius: 5px;
+    flex-shrink: 0;
+}
 
-.about-text {
-    max-width: 100%;
+.article-body {
+    flex: 1;
+}
+
+.article-head {
     display: flex;
-    justify-content: space-between;
-    font-size: 1.2rem;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 6px;
 }
 
-.about {
-    max-width: 60%;
+.article-card h3 {
+    font-size: 1.1rem;
 }
 
-.about p {
-    margin-top: 10px;
+.article-card p {
+    font-size: 0.95rem;
+    color: #3c3c3c;
 }
 
-.skills-interest {
-    max-width: 35%;
-    display: flex;
-    gap: 35px;
+.article-card-date {
+    font-size: 0.7rem;
+    color: #3c3c3c;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.article-card-brief {
+    margin-top: 8px;
 }
 
 @media (max-width: 576px) {
-    
+    html {
+        font-size: 0.85rem;
+    }
+
     .logo-text a {
-        font-size: 0.9rem;
+        font-size: 1.05rem;
     }
-    
-    main {
-        margin-top: 5vh;
-    }
-    
-    .about-photo {
-        width: 150px;
-        height: 150px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
+
     .nav-bar ul li a {
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
-    
-    .about-photo img {
-        width: 100%;
-        height: 100%;
-        border-radius: 70%;
-    }
-    
-    .about {
-        max-width: 85%;
-    }
-    
-    .about p {
-        margin-top: 10px;
-    }
-    
-    .about-text {
-        display: flex;
+
+    .article-card {
         flex-direction: column;
-        gap: 15px;
-        align-items: center;
-    }
-    
-    .skills-interest {
-        max-width: 100%;
-        display: flex;
-        gap: 20%;
-        margin-top: 30px;
-    }
-    
-    .skills-interest ul {
-
+        align-items: stretch;
+        padding: 16px 0;
     }
 
-}
-
-@media (min-width: 577px) and (max-width: 768px) {
-    .logo-text a {
-        font-size: 0.9rem;
-    }
-    
-    main {
-        margin-top: 5vh;
-    }
-    
-    .about-photo {
-        width: 150px;
-        height: 150px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .nav-bar ul li a {
-        font-size: 0.9rem;
-    }
-    
-    .about-photo img {
+    .article-thumb {
         width: 100%;
-        height: 100%;
-        border-radius: 70%;
+        height: 170px;
+        margin-bottom: 12px;
     }
-    
-    .about {
-        max-width: 85%;
-    }
-    
-    .about p {
-        margin-top: 10px;
-    }
-    
-    .about-text {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        align-items: center;
-    }
-    
-    .skills-interest {
-        max-width: 100%;
-        display: flex;
-        gap: 20%;
-        margin-top: 30px;
-    }
-    
-    .skills-interest ul {
-        
-    }
-}
-
-@media (min-width: 769px) and (max-width: 1100px) {
-    
-    .about-text p {
-        gap: 10px;
-    }
-    
-    .about p {
-        margin-top: 10px;
-    }
-    
-    .about-photo {
-        width: 150px;
-        height: 150px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .about-photo img {
-        width: 100%;
-        height: 100%;
-        border-radius: 70%;
-    }
-    
 }
 
 footer {

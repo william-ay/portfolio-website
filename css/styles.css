@@ -62,6 +62,11 @@ header {
     padding-top: 10px;
     color: black;
     align-items: center;
+    position: relative;
+}
+
+.nav-toggle {
+    display: none;
 }
 
 .logo-text a {
@@ -100,7 +105,7 @@ main {
 }
 
 .about-me {
-    margin-top: 30px;
+    margin-top: 50px;
     min-height: 30vh;
     display: flex;
     flex-direction: column;
@@ -114,6 +119,19 @@ main {
 .about-me-text h1 {
     font-size: 2.5rem;
     margin-bottom: 10px;
+}
+
+.caret {
+    display: inline-block;
+    margin-left: 3px;
+    font-weight: 400;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
 }
 
 .about-me-text p {
@@ -137,10 +155,6 @@ main {
     list-style-type: none;
     display: flex;
     gap: 10px;
-}
-
-.about-me-link2 {
-    display: none;
 }
 
 .about-me-link li {
@@ -181,55 +195,142 @@ main {
     color: white;
 }
 
+.lbl-short {
+    display: none;
+}
+
 .projects {
     margin-top: 10px;
     margin-bottom: 25px;
 }
 
-.project-heading {
-    margin-bottom: 10px;
+.project-heading,
+.home-articles-heading {
+    font-size: 1.5rem;
+    text-align: left;
+    margin-bottom: 12px;
+}
+
+.home-articles {
+    margin-top: 64px;
+    margin-bottom: 25px;
+}
+
+.home-article-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.article-card {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 14px;
+    border-bottom: 1px solid #e2e2df;
+    padding: 16px 0;
+    text-decoration: none;
+    color: black;
+}
+
+.article-card:hover h3 {
+    text-decoration: underline;
+}
+
+.article-thumb {
+    width: 110px;
+    height: 74px;
+    object-fit: cover;
+    border-radius: 5px;
+    flex-shrink: 0;
+}
+
+.article-body {
+    flex: 1;
+}
+
+.article-head {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 6px;
+}
+
+.article-card h3 {
+    font-size: 1.1rem;
+}
+
+.article-card p {
+    font-size: 0.95rem;
+    color: #3c3c3c;
+}
+
+.article-card-date {
+    font-size: 0.7rem;
+    color: #3c3c3c;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.article-card-brief {
+    margin-top: 8px;
+}
+
+.home-articles-more {
+    margin-top: 14px;
+}
+
+.home-articles-more a {
+    font-size: 0.8rem;
+    color: #3c3c3c;
+    text-decoration: none;
+}
+
+.home-articles-more a:hover {
+    text-decoration: underline;
 }
 
 .project-containers {
     display: flex;
-    gap: 15px;
+    justify-content: space-between;
+    gap: 18px;
 }
 
-.project-containers div {
-    width: 100%;
+.project-card {
+    width: 30%;
     display: flex;
     flex-direction: column;
-    /* justify-content:; */
-    align-items: center;
-    align-content: space-between;
-    justify-content: space-between;
-    /*gap: 2px;*/
+    cursor: pointer;
+}
+
+.project-image {
     border: black 3px solid;
     border-radius: 8px;
-    width: 30%;
-    height: 175px;
+    overflow: hidden;
+    aspect-ratio: 2 / 1;
     transition: 0.3s ease;
 }
 
-.project-containers div:hover {
-    scale: calc(1.05);
-}
-
-.project-containers div img {
+.project-image img {
     width: 100%;
-    height: 80%;
-    border-radius: 3px;
+    height: 100%;
     object-fit: cover;
+    display: block;
 }
 
-.project-containers div p {
+.project-card:hover .project-image {
+    scale: 1.05;
+}
+
+.project-name {
+    margin-top: 10px;
     font-size: 1rem;
-    padding-bottom: 5px;
+    color: black;
 }
 
-.project-containers div p a {
-    text-decoration: none;
-    color: black;
+.project-card:focus-visible {
+    outline: 3px solid black;
+    outline-offset: 3px;
 }
 
 .certifications {
@@ -269,23 +370,94 @@ main {
     border-radius: 3px;
 }
 
-footer {
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    min-height: 10vh;
-    margin-top: 3vh;
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    align-items: center;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 50;
     justify-content: center;
-    background-color: #303841;
-    color: white;
-    font-size: 1rem;
+    align-items: center;
+    padding: 20px;
 }
 
-.copy {
-    font-family: "Courier New", Courier, monospace;
+.modal.open {
+    display: flex;
+}
+
+.modal-box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: white;
+    border: black 3px solid;
+    border-radius: 8px;
+    padding: 30px;
+    width: 100%;
+    max-width: 560px;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    line-height: 1;
+    color: black;
+    cursor: pointer;
+    font-family: "Space Mono", monospace;
+}
+
+.modal-box h3 {
+    font-size: 1.4rem;
+    padding-right: 24px;
+}
+
+.modal-box p {
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.modal-btn {
+    align-self: flex-start;
+    display: inline-block;
+    border: black 3px solid;
+    border-radius: 6px;
+    padding: 10px 16px;
+    background-color: white;
+    color: black;
+    text-decoration: none;
+    font-family: "Space Mono", monospace;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.modal-btn:hover {
+    background-color: black;
+    color: white;
+}
+
+.chess-placeholder {
+    border: black 3px solid;
+    border-radius: 6px;
+    padding: 40px 20px;
+    text-align: center;
+    color: #3c3c3c;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .caret {
+        animation: none;
+    }
 }
 
 @media (max-width: 576px) {
@@ -305,73 +477,48 @@ footer {
         gap: 5px;
     }
 
-    .about-me-link li {
-        width: 30vw;
-        height: 35px;
-        background-color: purple;
+    main {
+        max-width: 100%;
+        padding-left: 23px;
+        padding-right: 23px;
+    }
+
+    .about-me-link {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 8px;
+    }
+
+    .about-me-link li,
+    .about-me-link li:nth-child(3),
+    .about-me-link li:last-child {
+        flex: 1 1 0;
+        width: auto;
+        height: 34px;
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 15px;
+        gap: 8px;
     }
 
     .about-me-link li a {
-        font-size: 1rem;
+        font-size: clamp(0.75rem, 3.2vw, 1rem);
+        white-space: nowrap;
     }
 
     .about-me-link img {
-        width: 14%;
-        height: 50%;
+        width: 16px;
+        height: 16px;
         color: white;
     }
 
-    .about-me-link li:last-child {
+    .lbl-full {
         display: none;
     }
 
-    .about-me-link2 li a {
-        font-size: 1rem;
-        text-decoration: none;
-        color: white;
+    .lbl-short {
+        display: inline;
     }
-
-    .about-me-link2 {
-        list-style-type: none;
-        display: flex;
-        gap: 10px;
-    }
-
-    .about-me-link2 {
-        display: flex;
-    }
-
-    .about-me-link2 img {
-        width: 20px;
-        height: 20px;
-        color: white;
-    }
-
-    .about-me-link2 li {
-        width: 40vw;
-        height: 35px;
-        background-color: purple;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 15px;
-    }
-
-    .about-me-link2 li:last-child {
-        background-color: rgb(82, 17, 129);
-    }
-
-    .about-me-link2 li {
-        width: 150px;
-    }
-
-    /* made use of 2 flex boxes for the links to display in 2 rows
-       will change after updating knwoledge on grid
-    */
 
     html {
         font-size: 0.78rem;
@@ -385,41 +532,48 @@ footer {
         font-size: 1rem;
     }
 
-    .project-heading {
-        text-align: center;
-        margin-bottom: 10px;
-    }
-
-    .project-containers div {
-        width: 100%;
-        display: flex;
-        width: 80%;
-        height: 200px;
-    }
-
     .project-containers {
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
+        gap: 22px;
     }
 
-    .project-containers div p {
-        flex-direction: row;
+    .project-card {
+        width: 100%;
+    }
+
+    .project-image {
+        aspect-ratio: 2 / 1;
+    }
+
+    .project-name {
         font-size: 1.1rem;
     }
 
+    .home-articles {
+        margin-top: 44px;
+    }
 
-    .project-containers div {
+    .article-card {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .article-thumb {
+        width: 100%;
+        height: 170px;
+        margin-bottom: 12px;
+    }
+
+
+    .project-image {
         transition: none;
     }
 
-    .project-containers div:hover {
+    .project-card:hover .project-image {
         scale: none;
     }
 
-    footer {
-        text-align: center;
-        gap: 10px;
-    }
 }
 
 @media (min-width: 577px) and (max-width: 768px) {
@@ -433,11 +587,6 @@ footer {
 
     .nav-bar ul li a {
         font-size: 1rem;
-    }
-
-    .project-heading {
-        text-align: center;
-        margin-bottom: 10px;
     }
 
     .bout-links {
@@ -457,28 +606,6 @@ footer {
     .about-me-link li:last-child {
         width: 30vw;
     }
-
-    .project-containers div {
-        width: 100%;
-        display: flex;
-        width: 70%;
-        height: 175px;
-    }
-
-    .project-containers div p {
-        font-size: 0.95rem;
-    }
-
-    .project-containers {
-        flex-direction: column;
-        align-items: center;
-        font-size: 0.9rem;
-    }
-
-    .project-containers div p {
-        flex-direction: row;
-        font-size: 0.9rem;
-    }
 }
 
 /*Tablets & Devices with a screen size ranging 769px and 1100px */
@@ -497,27 +624,6 @@ footer {
 
     .about-me-link li:last-child {
         width: 25vw;
-    }
-
-    .project-containers div {
-        width: 80vw;
-    }
-
-    .project-containers div p {
-        text-align: center;
-        font-size: 0rem;
-    }
-
-    .project-containers div p:last-child,
-    .project-containers div p:nth-child(2) {
-        text-align: center;
-        font-size: 1rem;
-        padding-bottom: 10px;
-    }
-
-    .project-containers div img {
-        width: 100%;
-        height: 70%;
     }
 }
 
@@ -544,3 +650,829 @@ footer {
    }
 }
 
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        width: 42px;
+        height: 42px;
+        padding: 8px;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+    }
+
+    .nav-toggle span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: #303841;
+        border-radius: 2px;
+        transition: transform 0.25s ease, opacity 0.2s ease;
+    }
+
+    header.nav-open .nav-toggle span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    header.nav-open .nav-toggle span:nth-child(2) {
+        opacity: 0;
+    }
+
+    header.nav-open .nav-toggle span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .nav-bar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        border-top: 1px solid #e0e0e0;
+        border-bottom: 1px solid #303841;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.28s ease;
+        z-index: 40;
+    }
+
+    header.nav-open .nav-bar {
+        max-height: 260px;
+    }
+
+    .nav-bar ul {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .nav-bar ul li {
+        padding: 0;
+    }
+
+    .nav-bar ul li a {
+        display: block;
+        padding: 15px 22px;
+        border-top: 1px solid #ececec;
+        font-size: 1.05rem;
+    }
+
+    .nav-bar ul li:first-child a {
+        border-top: none;
+    }
+}
+
+
+.modal-box-chess {
+    max-width: 500px;
+    padding: 22px;
+}
+
+.chess-screen {
+    width: min(94vw, 440px);
+    margin: 0 auto;
+    font-family: "Space Mono", monospace;
+}
+
+.chess-app {
+    width: min(94vw, 440px);
+    margin: 0 auto;
+    font-family: "Space Mono", monospace;
+    position: relative;
+}
+
+.chess-mount {
+    position: relative;
+}
+
+.chess-promo {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.78);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+}
+
+.chess-promo-box {
+    background: #ffffff;
+    border: 3px solid black;
+    border-radius: 16px;
+    padding: 18px 20px;
+    text-align: center;
+}
+
+.chess-promo-title {
+    font-family: "Patrick Hand", cursive;
+    font-size: 1.3rem;
+    color: black;
+    margin-bottom: 12px;
+}
+
+.chess-promo-pieces {
+    display: flex;
+    gap: 10px;
+}
+
+.chess-promo-btn {
+    width: 56px;
+    height: 56px;
+    border: 2px solid black;
+    border-radius: 12px;
+    background: #ffffff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chess-promo-btn img {
+    width: 82%;
+    height: 82%;
+}
+
+.chess-endpopup {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    padding: 16px;
+}
+
+.chess-endcard {
+    position: relative;
+    background: #ffffff;
+    border: 3px solid black;
+    border-radius: 18px;
+    padding: 40px 24px 26px;
+    text-align: center;
+    width: 100%;
+    max-width: 320px;
+}
+
+.chess-endcard h3 {
+    font-family: "Patrick Hand", cursive;
+    font-size: 1.5rem;
+    line-height: 1.25;
+    color: black;
+    margin-bottom: 12px;
+}
+
+.chess-endcard p {
+    font-family: "Space Mono", monospace;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: #3c3c3c;
+}
+
+.chess-end-dismiss {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 34px;
+    height: 34px;
+}
+
+.chess-endactions {
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.chess-endactions .chess-btn + .chess-btn {
+    margin-top: 0;
+}
+
+.chess-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 26px;
+}
+
+.chess-title {
+    text-align: center;
+}
+
+.chess-title h2 {
+    font-family: "Patrick Hand", cursive;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: black;
+}
+
+.chess-title .chess-sub {
+    font-size: 0.7rem;
+    color: #3c3c3c;
+}
+
+.chess-icon-btn {
+    width: 42px;
+    height: 42px;
+    border: 2px solid black;
+    border-radius: 50%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.chess-icon-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: black;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.chess-icon-btn .snd-off {
+    display: none;
+}
+
+.chess-icon-btn.muted .snd-on {
+    display: none;
+}
+
+.chess-icon-btn.muted .snd-off {
+    display: inline;
+}
+
+.chess-art {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 96px;
+    margin-bottom: 22px;
+}
+
+.chess-king {
+    font-size: 66px;
+    line-height: 1;
+    color: black;
+}
+
+.chess-art .chess-spark {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    fill: black;
+}
+
+.chess-art .chess-spark:first-of-type {
+    top: 10px;
+    left: 32%;
+}
+
+.chess-art .chess-spark:last-of-type {
+    bottom: 12px;
+    right: 32%;
+    width: 13px;
+    height: 13px;
+}
+
+.chess-section {
+    margin-bottom: 26px;
+}
+
+.chess-label {
+    font-family: "Patrick Hand", cursive;
+    font-size: 1.15rem;
+    color: black;
+    text-align: center;
+    margin-bottom: 14px;
+}
+
+.chess-choices {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.chess-choice {
+    font-family: "Patrick Hand", cursive;
+    font-size: 1.05rem;
+    padding: 10px 16px;
+    border: 2px solid black;
+    border-radius: 14px;
+    background: #ffffff;
+    color: black;
+    cursor: pointer;
+}
+
+.chess-choice.active {
+    background: black;
+    color: white;
+}
+
+.chess-choices-level {
+    flex-wrap: nowrap;
+    gap: 8px;
+}
+
+.chess-choice-piece {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 6px;
+    text-align: center;
+    line-height: 1.15;
+}
+
+.chess-choice-piece .cpc-icon {
+    height: 34px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.chess-choice-piece .cpc-icon img {
+    height: 34px;
+    width: auto;
+}
+
+.chess-choice-piece.active .cpc-icon img {
+    filter: invert(1);
+}
+
+.chess-choice-piece .cpc-label {
+    font-size: 0.95rem;
+}
+
+.chess-btn {
+    font-family: "Patrick Hand", cursive;
+    font-size: 1.25rem;
+    width: 100%;
+    padding: 14px;
+    border: 2px solid black;
+    border-radius: 14px;
+    background: #ffffff;
+    color: black;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.chess-btn.primary {
+    background: black;
+    color: white;
+}
+
+.chess-spark {
+    fill: currentColor;
+}
+
+.chess-btn .chess-spark {
+    width: 14px;
+    height: 14px;
+}
+
+.chess-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.chess-btn + .chess-btn {
+    margin-top: 14px;
+}
+
+.chess-menu .chess-btn + .chess-btn {
+    margin-top: 0;
+}
+
+.chess-btn-back {
+    font-size: 1.05rem;
+    padding: 10px;
+}
+
+.chess-slides {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 240px;
+}
+
+.chess-arrow {
+    flex-shrink: 0;
+}
+
+.chess-slide {
+    flex: 1;
+    align-self: stretch;
+    border: 2px solid black;
+    border-radius: 16px;
+    padding: 28px 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.chess-slide-icon {
+    width: 46px;
+    height: 46px;
+    display: block;
+    margin: 0 auto 18px;
+}
+
+.chess-slide h3 {
+    font-family: "Patrick Hand", cursive;
+    font-size: 1.4rem;
+    color: black;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.chess-slide p {
+    font-family: "Space Mono", monospace;
+    font-size: 0.82rem;
+    color: #3c3c3c;
+    line-height: 1.7;
+    text-align: center;
+}
+
+.chess-pieces-help {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.chess-pieces-help li {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    font-family: "Space Mono", monospace;
+    font-size: 0.76rem;
+    color: #3c3c3c;
+    line-height: 1.4;
+}
+
+.chess-pieces-help img {
+    width: 26px;
+    height: 26px;
+    flex-shrink: 0;
+}
+
+.chess-pieces-help b {
+    color: black;
+}
+
+.chess-dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 16px;
+}
+
+.chess-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 1.5px solid black;
+    background: #ffffff;
+}
+
+.chess-dot.active {
+    background: black;
+}
+
+.chess-controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.chess-controls .chess-btn {
+    flex: 1;
+    font-size: 1rem;
+    padding: 10px 6px;
+}
+
+.chess-controls .chess-btn + .chess-btn {
+    margin-top: 0;
+}
+
+.chess-status {
+    font-family: "Patrick Hand", cursive;
+    font-size: 1.25rem;
+    text-align: center;
+    color: black;
+    min-height: 1.6em;
+    margin-bottom: 10px;
+}
+
+.chess-board {
+    grid-column: 2;
+    grid-row: 1;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    border: 3px solid black;
+    border-radius: 6px;
+    overflow: hidden;
+    touch-action: manipulation;
+}
+
+.csq {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.csq.light {
+    background-color: #ffffff;
+}
+
+.csq.dark {
+    background-color: #303841;
+}
+
+.cpiece {
+    width: 84%;
+    height: 84%;
+    pointer-events: none;
+    user-select: none;
+}
+
+.csq.dark .cpiece.black {
+    filter:
+        drop-shadow(0.7px 0 0 #f2f2f2) drop-shadow(-0.7px 0 0 #f2f2f2)
+        drop-shadow(0 0.7px 0 #f2f2f2) drop-shadow(0 -0.7px 0 #f2f2f2);
+}
+
+.chess-board-wrap {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr auto;
+}
+
+.chess-ranks {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    padding-right: 6px;
+}
+
+.chess-ranks span {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Space Mono", monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #303841;
+}
+
+.chess-files {
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    padding-top: 5px;
+}
+
+.chess-files span {
+    flex: 1;
+    text-align: center;
+    font-family: "Space Mono", monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #303841;
+}
+
+.chess-tray {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1px;
+    min-height: 26px;
+    margin: 5px 0;
+}
+
+.ctray-piece {
+    width: 22px;
+    height: 22px;
+}
+
+.chess-credit {
+    margin-top: 18px;
+    text-align: center;
+    font-family: "Space Mono", monospace;
+    font-size: clamp(0.5rem, 2.5vw, 0.68rem);
+    color: #3c3c3c;
+    white-space: nowrap;
+}
+
+.chess-credit a {
+    color: #303841;
+}
+
+.csq.sel::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.18);
+    pointer-events: none;
+}
+
+.csq.dark.sel::after {
+    background-color: rgba(255, 255, 255, 0.22);
+}
+
+.csq.last::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.15);
+    box-shadow: inset 0 0 0 4px rgba(0, 0, 0, 0.6);
+    pointer-events: none;
+}
+
+.csq.dark.last::after {
+    background-color: rgba(255, 255, 255, 0.18);
+    box-shadow: inset 0 0 0 4px rgba(255, 255, 255, 0.65);
+}
+
+.csq.move::before {
+    content: "";
+    position: absolute;
+    width: 30%;
+    height: 30%;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.35);
+    pointer-events: none;
+}
+
+.csq.dark.move::before {
+    background-color: rgba(255, 255, 255, 0.45);
+}
+
+.csq.capture::before {
+    content: "";
+    position: absolute;
+    inset: 7%;
+    border-radius: 50%;
+    border: 5px solid rgba(0, 0, 0, 0.35);
+    pointer-events: none;
+}
+
+.csq.dark.capture::before {
+    border-color: rgba(255, 255, 255, 0.45);
+}
+
+.csq.check::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 0 0 4px black;
+    pointer-events: none;
+    animation: chess-check 0.7s ease-in-out infinite alternate;
+}
+
+.csq.dark.check::after {
+    box-shadow: inset 0 0 0 4px #f2f2f2;
+}
+
+@keyframes chess-check {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .csq.check::after {
+        animation: none;
+        opacity: 1;
+    }
+}
+
+footer {
+    width: 100%;
+    margin-top: 3vh;
+    background-color: #ffffff;
+    border-top: 2px solid black;
+    color: black;
+    font-family: "Space Mono", monospace;
+}
+
+.footer-inner {
+    max-width: none;
+    margin: 0 auto;
+    padding: 34px 48px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    text-align: left;
+}
+
+.footer-path {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.footer-path a {
+    color: black;
+    text-decoration: none;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+}
+
+.footer-path a:hover {
+    border-bottom-color: #303841;
+}
+
+.footer-path a:focus-visible {
+    outline: 2px solid #303841;
+    outline-offset: 3px;
+}
+
+.footer-path .sep {
+    color: #3c3c3c;
+}
+
+.footer-legal {
+    font-size: 16px;
+    color: #3c3c3c;
+    line-height: 1.7;
+    white-space: nowrap;
+}
+
+.copy {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.attr-short {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .footer-inner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-path {
+        justify-content: center;
+    }
+
+    .footer-legal {
+        white-space: normal;
+    }
+
+    .attr-full {
+        display: none;
+    }
+
+    .attr-short {
+        display: inline;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-inner {
+        padding-left: 23px;
+        padding-right: 23px;
+    }
+
+    .footer-path {
+        font-size: 14px;
+    }
+
+    .footer-legal {
+        font-size: 14px;
+    }
+}

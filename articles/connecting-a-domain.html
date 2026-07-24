@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>How to connect a domain to your website</title>
+        <link rel="stylesheet" href="../css/article_styles.css">
+        <link rel="icon" href="../images/icons/logo.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <p class="logo-text"><a href="../index.html">william awe</a></p>
+            <nav class="nav-bar">
+                <ul>
+                    <li class=""><a href="../about_me.html">about</a></li>
+                    <li class=""><a href="../articles.html">articles</a></li>
+                    <li class=""><a href="mailto:william.awe06@ed.cna.nl.ca">contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <a class="back-link" href="../articles.html">&#8592; back to articles</a>
+            <article class="article-full">
+                <h1>How to connect a domain to your website</h1>
+                <p class="article-date">June 3, 2026</p>
+                <img class="article-hero" src="../images/proj-images/proj.jpg" alt="">
+                <p>You have built a site and deployed it to a host like Vercel, Netlify, or GitHub Pages, but it is sitting on a long default address. What you actually want is for people to reach it at your own name, like <code>yourdomain.com</code>. Connecting a domain is how you do that, and it comes down to buying the name and then pointing it at your host.</p>
+
+                <h2>Step 1: buy the domain</h2>
+                <p>You buy a domain from a registrar. Common ones are Namecheap, Porkbun, Cloudflare, and GoDaddy. You pay a yearly fee to hold the name. At this point the domain is yours, but it does not point anywhere yet.</p>
+
+                <h2>Step 2: understand DNS</h2>
+                <p>DNS is the system that translates a human name like <code>yourdomain.com</code> into the address of the server that actually serves your site. You connect a domain by editing a few DNS records at your registrar. The two you will use most are:</p>
+                <ul>
+                    <li><span class="bolden">A record</span> &#8212; points a domain straight at an IP address.</li>
+                    <li><span class="bolden">CNAME record</span> &#8212; points a domain at another domain name instead of an IP.</li>
+                </ul>
+
+                <h2>Step 3: add the domain in your host</h2>
+                <p>Go into your hosting dashboard and add your custom domain there first. The host will then tell you exactly what to point at. Usually it gives you an IP address for an A record, or a target address for a CNAME. Keep that page open, because you need those values in the next step.</p>
+
+                <h2>Step 4: add the records at your registrar</h2>
+                <p>Back in your registrar's DNS settings, enter the values your host gave you. A typical setup is an A record for the bare domain (<code>yourdomain.com</code>) and a CNAME for the <code>www</code> version pointing at your host. Some hosts prefer you change the nameservers instead, which hands DNS management to them entirely.</p>
+
+                <h2>Step 5: wait, then check</h2>
+                <p>DNS changes are not always instant. They can take anywhere from a few minutes to a couple of days to spread across the internet, which is called propagation. Most modern hosts also set up HTTPS for you automatically once the domain resolves, so you get the padlock without extra work. If it is not live after a while, a DNS checker tool will show you whether your records have taken effect yet.</p>
+
+                <p>That is the whole flow: buy the name, add it in your host, copy the records into your registrar, and wait for it to propagate. After that, your site answers to your own domain.</p>
+            </article>
+        </main>
+        <footer>
+            <div class="footer-inner">
+                <nav class="footer-path">
+                    <a href="../about_me.html">about</a><span class="sep">/</span>
+                    <a href="../articles.html">articles</a><span class="sep">/</span>
+                    <a href="mailto:william.awe06@ed.cna.nl.ca">contact</a>
+                </nav>
+                <p class="footer-legal"><span class="copy">&copy;</span> william awe 2026 &nbsp;&middot;&nbsp; <span class="attr-full">icons used in this website were gotten fromm icon 8</span><span class="attr-short">icons from Icon8</span></p>
+            </div>
+        </footer>
+        <script src="../js/index.js"></script>
+    </body>
+</html>

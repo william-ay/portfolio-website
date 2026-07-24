@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>What is a multisig wallet?</title>
+        <link rel="stylesheet" href="../css/article_styles.css">
+        <link rel="icon" href="../images/icons/logo.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <p class="logo-text"><a href="../index.html">william awe</a></p>
+            <nav class="nav-bar">
+                <ul>
+                    <li class=""><a href="../about_me.html">about</a></li>
+                    <li class=""><a href="../articles.html">articles</a></li>
+                    <li class=""><a href="mailto:william.awe06@ed.cna.nl.ca">contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <a class="back-link" href="../articles.html">&#8592; back to articles</a>
+            <article class="article-full">
+                <h1>What is a multisig wallet?</h1>
+                <p class="article-date">June 28, 2026</p>
+                <img class="article-hero" src="../images/proj-images/proj.jpg" alt="">
+                <p>A multisignature wallet, usually shortened to "multisig", is a crypto wallet that needs more than one private key to approve a transaction. A normal wallet has a single key, and whoever holds that key has full control of the funds. A multisig splits that control across several keys, so a payment only goes through once enough of them sign off on it.</p>
+
+                <h2>How it works</h2>
+                <p>A multisig is set up with a total number of signers and a threshold. This is written as "m-of-n", where n is how many keys exist and m is how many are required to approve a transaction. A 2-of-3 wallet, for example, has three keys but only needs any two of them to sign before a transaction is valid.</p>
+                <p>The threshold is enforced by the wallet itself. On a network like Ethereum the wallet is a smart contract that checks the signatures before it moves any funds, so the rule cannot be skipped by whoever starts the transaction.</p>
+
+                <h2>Why use one</h2>
+                <ul>
+                    <li><span class="bolden">No single point of failure.</span> If one key is stolen or lost, an attacker still cannot move funds on their own, and you can still access the wallet with the remaining keys.</li>
+                    <li><span class="bolden">Shared control.</span> Teams, DAOs, and project treasuries use multisig so that no single person can spend from a shared pool of money without agreement from others.</li>
+                    <li><span class="bolden">Safer key storage.</span> You can spread the keys across different devices or locations, which makes it much harder for everything to be compromised at once.</li>
+                </ul>
+
+                <h2>The trade-offs</h2>
+                <p>Multisig adds safety but also adds friction. Every transaction has to be signed by multiple keys, which takes coordination and can be slower. On some networks the extra on-chain logic also costs more in fees. And while losing one key is survivable, you still have to keep every key backed up and secure, because losing too many of them can lock you out permanently.</p>
+
+                <h2>Where you see it</h2>
+                <p>The most common example on Ethereum is Safe (formerly Gnosis Safe), which is widely used to hold treasuries for teams and DAOs. Bitcoin supports multisig at the protocol level as well, often used by exchanges and custody services to protect large balances. A typical personal setup is 2-of-3: one key on your phone, one on a hardware wallet, and one kept somewhere safe as a backup.</p>
+
+                <p>In short, a multisig wallet trades a little convenience for a lot of security, and it is a good fit any time the funds are too important to sit behind a single key.</p>
+            </article>
+        </main>
+        <footer>
+            <div class="footer-inner">
+                <nav class="footer-path">
+                    <a href="../about_me.html">about</a><span class="sep">/</span>
+                    <a href="../articles.html">articles</a><span class="sep">/</span>
+                    <a href="mailto:william.awe06@ed.cna.nl.ca">contact</a>
+                </nav>
+                <p class="footer-legal"><span class="copy">&copy;</span> william awe 2026 &nbsp;&middot;&nbsp; <span class="attr-full">icons used in this website were gotten fromm icon 8</span><span class="attr-short">icons from Icon8</span></p>
+            </div>
+        </footer>
+        <script src="../js/index.js"></script>
+    </body>
+</html>

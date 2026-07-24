@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The difference between var, let, and const</title>
+        <link rel="stylesheet" href="../css/article_styles.css">
+        <link rel="icon" href="../images/icons/logo.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <p class="logo-text"><a href="../index.html">william awe</a></p>
+            <nav class="nav-bar">
+                <ul>
+                    <li class=""><a href="../about_me.html">about</a></li>
+                    <li class=""><a href="../articles.html">articles</a></li>
+                    <li class=""><a href="mailto:william.awe06@ed.cna.nl.ca">contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <a class="back-link" href="../articles.html">&#8592; back to articles</a>
+            <article class="article-full">
+                <h1>The difference between var, let, and const</h1>
+                <p class="article-date">May 12, 2026</p>
+                <img class="article-hero" src="../images/proj-images/proj.jpg" alt="">
+                <p>JavaScript gives you three ways to declare a variable: <code>var</code>, <code>let</code>, and <code>const</code>. They look similar, but they behave differently in three areas: scope, hoisting, and whether you can reassign them. Understanding those differences helps you avoid a whole class of confusing bugs.</p>
+
+                <h2>var</h2>
+                <p>This is the original keyword. A <code>var</code> is function-scoped, which means it is visible everywhere inside the function it was declared in, even outside the block it appears in. It is also hoisted and set to <code>undefined</code> before the code runs, so using it early does not throw an error. You can redeclare and reassign it freely.</p>
+                <pre><code>function test() {
+  if (true) {
+    var x = 5;
+  }
+  console.log(x); // 5 - still visible outside the if block
+}</code></pre>
+
+                <h2>let</h2>
+                <p>A <code>let</code> is block-scoped. It only exists inside the nearest set of curly braces, whether that is a function, an <code>if</code> block, or a loop. It is hoisted too, but you cannot use it before its declaration line runs. That gap is called the temporal dead zone, and reaching into it throws an error. You can reassign a <code>let</code>, but you cannot redeclare it in the same scope.</p>
+                <pre><code>if (true) {
+  let y = 5;
+}
+console.log(y); // ReferenceError - y only lived inside the block</code></pre>
+
+                <h2>const</h2>
+                <p>A <code>const</code> behaves like <code>let</code> for scope and the temporal dead zone, but it cannot be reassigned and must be given a value when you declare it. One thing that trips people up: <code>const</code> makes the binding constant, not the value. If a <code>const</code> holds an object or array, you can still change what is inside it.</p>
+                <pre><code>const user = { name: "Will" };
+user.name = "William"; // allowed - we changed a property
+user = {};             // TypeError - we tried to reassign the binding</code></pre>
+
+                <h2>Which should you use</h2>
+                <p>A good default is to reach for <code>const</code> first, since most variables never need to be reassigned and <code>const</code> makes that intent clear. Use <code>let</code> when you genuinely need to reassign, like a counter in a loop. Avoid <code>var</code> in new code, because its function scoping and silent hoisting cause bugs that the block-scoped keywords simply prevent.</p>
+            </article>
+        </main>
+        <footer>
+            <div class="footer-inner">
+                <nav class="footer-path">
+                    <a href="../about_me.html">about</a><span class="sep">/</span>
+                    <a href="../articles.html">articles</a><span class="sep">/</span>
+                    <a href="mailto:william.awe06@ed.cna.nl.ca">contact</a>
+                </nav>
+                <p class="footer-legal"><span class="copy">&copy;</span> william awe 2026 &nbsp;&middot;&nbsp; <span class="attr-full">icons used in this website were gotten fromm icon 8</span><span class="attr-short">icons from Icon8</span></p>
+            </div>
+        </footer>
+        <script src="../js/index.js"></script>
+    </body>
+</html>
