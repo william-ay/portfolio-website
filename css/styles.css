@@ -338,6 +338,10 @@ main {
     outline-offset: 3px;
 }
 
+.project-card[data-modal="modal-chess"] {
+    visibility: hidden;
+}
+
 .certifications {
     display: none;
 }
