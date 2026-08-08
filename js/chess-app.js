@@ -154,12 +154,16 @@ function initChessApp(root, options) {
         soundBtn.classList.toggle('muted');
         savePrefs();
     });
-    root.querySelector('[data-close]').addEventListener('click', close);
+    root.querySelector('[data-close]').addEventListener('click', showExitConfirm);
 
     function close() {
         if (typeof options.onClose === 'function') {
             options.onClose();
         }
+    }
+
+    function overlayHost() {
+        return root.closest('.modal-box') || root.querySelector('.chess-app');
     }
 
     function setSub(text) {
@@ -200,7 +204,7 @@ function initChessApp(root, options) {
         }
         on('[data-play]', showSetup);
         on('[data-howto]', showHowTo);
-        on('[data-quit]', close);
+        on('[data-quit]', showExitConfirm);
     }
 
     function showSetup() {
@@ -370,7 +374,7 @@ function initChessApp(root, options) {
                     '<button class="chess-btn" data-tomenu>Menu</button>' +
                 '</div>' +
             '</div>';
-        root.querySelector('.chess-app').appendChild(popup);
+        overlayHost().appendChild(popup);
         popup.querySelector('.chess-end-dismiss').addEventListener('click', function () {
             popup.remove();
         });
@@ -381,6 +385,35 @@ function initChessApp(root, options) {
         popup.querySelector('[data-tomenu]').addEventListener('click', function () {
             popup.remove();
             showMenu();
+        });
+    }
+
+    function showExitConfirm() {
+        if (root.querySelector('.chess-confirm')) {
+            return;
+        }
+        var overlay = document.createElement('div');
+        overlay.className = 'chess-confirm';
+        overlay.innerHTML =
+            '<div class="chess-confirm-card">' +
+                '<p class="chess-confirm-text">Are you sure you want to exit the game?</p>' +
+                '<div class="chess-confirm-actions">' +
+                    '<button class="chess-btn" data-yes>Yes</button>' +
+                    '<button class="chess-btn primary" data-no>No</button>' +
+                '</div>' +
+            '</div>';
+        overlayHost().appendChild(overlay);
+        overlay.addEventListener('click', function (e) {
+            if (e.target === overlay) {
+                overlay.remove();
+            }
+        });
+        overlay.querySelector('[data-yes]').addEventListener('click', function () {
+            overlay.remove();
+            close();
+        });
+        overlay.querySelector('[data-no]').addEventListener('click', function () {
+            overlay.remove();
         });
     }
 
