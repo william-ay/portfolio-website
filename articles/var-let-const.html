@@ -5,71 +5,140 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>The difference between var, let, and const</title>
+        <meta name="description" content="How JavaScript&#x27;s three declaration keywords differ in scope, hoisting, and reassignment.">
+        <meta property="og:type" content="article">
+        <meta property="og:site_name" content="William Awe">
+        <meta property="og:title" content="The difference between var, let, and const">
+        <meta property="og:description" content="How JavaScript&#x27;s three declaration keywords differ in scope, hoisting, and reassignment.">
+        <meta property="og:url" content="https://william-awe-portfolio.vercel.app/articles/var-let-const.html">
+        <meta property="og:image" content="https://william-awe-portfolio.vercel.app/images/preview.png">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:image:alt" content="William Awe: I build small, working projects for the web.">
+        <meta name="twitter:card" content="summary_large_image">
         <link rel="stylesheet" href="../css/article_styles.css">
-        <link rel="icon" href="../images/icons/logo.png">
+        <link rel="icon" href="../images/icons/favicon.png">
+        <link rel="apple-touch-icon" href="../images/icons/apple-touch-icon.png">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Patrick+Hand&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     </head>
     <body>
         <header>
-            <p class="logo-text"><a href="../index.html">william awe</a></p>
-            <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
-                <span></span><span></span><span></span>
-            </button>
-            <nav class="nav-bar" id="nav-menu">
-                <ul>
-                    <li class=""><a href="../about_me.html">about</a></li>
-                    <li class=""><a href="../articles.html">articles</a></li>
-                    <li class=""><a href="mailto:william.awe06@ed.cna.nl.ca">contact</a></li>
-                </ul>
+            <a class="logo" href="../index.html">william awe</a>
+            <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg></button>
+            <nav class="nav-bar" id="site-nav" aria-label="Main">
+                <a class="nav-home icon-home" href="../index.html" aria-label="Home"><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="roof" d="M5 12l-2 0l9 -9l9 9l-2 0"/><path class="house" d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"/><path class="door" d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"/></svg><span class="nav-extra">home</span></a>
+                <a class="icon-user" href="../about_me.html"><svg class="icon nav-icon-copy" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle class="head" cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg><span>about<span class="nav-extra"> me</span></span></a>
+                <a class="icon-book nav-parent" href="../articles.html"><svg class="icon nav-icon-copy" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="4" stroke-miterlimit="10" stroke-linecap="square" aria-hidden="true"><path d="M24 40.5V41L24 10V10.5"/><path d="M24 41C31.0005 36.9995 37.9995 36.9995 45 41V10.0003C37.9995 5.99989 31.0005 5.99989 24 10.0003C16.9995 5.99989 10.0005 5.99989 3 10.0003V41C10.0005 36.9995 16.9995 36.9995 24 41Z"/><path class="book-line book-line-1" pathLength="1" d="M30 16.5C32.8362 15.1345 36.5662 15.06 39.5 16.2763"/><path class="book-line book-line-2" pathLength="1" d="M30 23.5832C32.8362 22.2178 36.5662 22.1432 39.5 23.3596"/><path class="book-line book-line-3" pathLength="1" d="M30 30.6665C32.8362 29.301 36.5662 29.2265 39.5 30.4428"/></svg><span>written works</span></a>
+                <a class="nav-contact icon-mail" href="mailto:william.awe06@ed.cna.nl.ca" data-contact><svg class="icon nav-icon-copy" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="hand" d="M16 14v2.2l1.6 1"/><path d="m22 7-.759.484"/><path d="M6.835 20H4a2 2 0 01-2-2V6a2 2 0 012-2h16a2 2 0 012 2v2"/><path d="M7.605 10.567 2 7"/><circle cx="16" cy="16" r="6"/></svg><span>contact me</span></a>
             </nav>
         </header>
         <main>
-            <a class="back-link" href="../articles.html">&#8592; back to articles</a>
             <article class="article-full">
-                <h1>The difference between var, let, and const</h1>
-                <p class="article-date">May 12, 2026</p>
-                <img class="article-hero" src="../images/proj-images/proj.jpg" alt="">
-                <p>JavaScript gives you three ways to declare a variable: <code>var</code>, <code>let</code>, and <code>const</code>. They look similar, but they behave differently in three areas: scope, hoisting, and whether you can reassign them. Understanding those differences helps you avoid a whole class of confusing bugs.</p>
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <a href="../index.html">home</a>
+                    <span class="breadcrumb-arrow" aria-hidden="true">&rsaquo;</span>
+                    <a href="../articles.html">written works</a>
+                    <span class="breadcrumb-arrow" aria-hidden="true">&rsaquo;</span>
+                    <span class="breadcrumb-here" aria-current="page">The difference between var, let, and const</span>
+                </nav>
+                <div class="article-head">
+                    <h1>The difference between var, let, and const</h1>
+                    <p class="article-subtitle">How JavaScript's three declaration keywords differ in scope, hoisting, and reassignment.</p>
+                    <div class="byline">
+                        <img class="byline-photo" src="../images/william.jpg" alt="" width="460" height="460">
+                        <div>
+                            <p class="byline-name">william awe</p>
+                            <p class="byline-meta">may 12, 2026</p>
+                        </div>
+                        <p class="byline-time">2 min read</p>
+                    </div>
+                </div>
+                <div class="article-body">
+                    <p>JavaScript gives you three ways to declare a variable. They look similar, but they behave differently in scope, hoisting, and whether you can reassign them.</p>
 
-                <h2>var</h2>
-                <p>This is the original keyword. A <code>var</code> is function-scoped, which means it is visible everywhere inside the function it was declared in, even outside the block it appears in. It is also hoisted and set to <code>undefined</code> before the code runs, so using it early does not throw an error. You can redeclare and reassign it freely.</p>
-                <pre><code>function test() {
-  if (true) {
-    var x = 5;
-  }
-  console.log(x); // 5 - still visible outside the if block
-}</code></pre>
+                    <h2><code>var</code></h2>
+                    <p>This is the original keyword. A <code>var</code> is function-scoped, which means it is visible everywhere inside the function it was declared in, even outside the block it appears in. It is also hoisted and set to <code>undefined</code> before the code runs, so using it early does not throw an error.</p>
+                    <pre>function test() {
+      if (true) {
+        var x = 5;
+      }
+      console.log(x); // 5 - still visible outside the if block
+    }</pre>
 
-                <h2>let</h2>
-                <p>A <code>let</code> is block-scoped. It only exists inside the nearest set of curly braces, whether that is a function, an <code>if</code> block, or a loop. It is hoisted too, but you cannot use it before its declaration line runs. That gap is called the temporal dead zone, and reaching into it throws an error. You can reassign a <code>let</code>, but you cannot redeclare it in the same scope.</p>
-                <pre><code>if (true) {
-  let y = 5;
-}
-console.log(y); // ReferenceError - y only lived inside the block</code></pre>
+                    <h2><code>let</code></h2>
+                    <p>A <code>let</code> is block-scoped. It only exists inside the nearest set of curly braces. It is hoisted too, but you cannot use it before its declaration line runs. That gap is called the <span class="highlight">temporal dead zone</span>, and reaching into it throws an error.</p>
+                    <pre>if (true) {
+      let y = 5;
+    }
+    console.log(y); // ReferenceError - y only lived inside the block</pre>
 
-                <h2>const</h2>
-                <p>A <code>const</code> behaves like <code>let</code> for scope and the temporal dead zone, but it cannot be reassigned and must be given a value when you declare it. One thing that trips people up: <code>const</code> makes the binding constant, not the value. If a <code>const</code> holds an object or array, you can still change what is inside it.</p>
-                <pre><code>const user = { name: "Will" };
-user.name = "William"; // allowed - we changed a property
-user = {};             // TypeError - we tried to reassign the binding</code></pre>
+                    <h2><code>const</code></h2>
+                    <p>A <code>const</code> behaves like <code>let</code> for scope, but it cannot be reassigned and must be given a value when you declare it.</p>
+                    <aside class="callout">
+                        <p class="callout-title">the one that trips people up</p>
+                        <p class="callout-text">const makes the binding constant, not the value. If a const holds an object or array, you can still change what is inside it.</p>
+                    </aside>
+                    <pre>const user = { name: "Will" };
+    user.name = "William"; // allowed - we changed a property
+    user = {};             // TypeError - we tried to reassign the binding</pre>
 
-                <h2>Which should you use</h2>
-                <p>A good default is to reach for <code>const</code> first, since most variables never need to be reassigned and <code>const</code> makes that intent clear. Use <code>let</code> when you genuinely need to reassign, like a counter in a loop. Avoid <code>var</code> in new code, because its function scoping and silent hoisting cause bugs that the block-scoped keywords simply prevent.</p>
+                    <h2>Which should you use?</h2>
+                    <p>Reach for const first, since most variables never need to be reassigned. Use let when you genuinely need to reassign, like a counter in a loop. Avoid var in new code.</p>
+                </div>
+                <p class="article-filed">filed under <span class="article-tag">javascript</span></p>
+                <a class="next-up" href="connecting-a-domain.html">
+                    <span class="next-up-label">next</span>
+                    <span class="next-up-picture" aria-hidden="true"></span>
+                    <span class="next-up-title">How to connect a domain to your website</span>
+                </a>
+                <a class="back-button" href="../articles.html">&larr; back to written works</a>
             </article>
         </main>
-        <footer>
+
+        <footer id="contact">
             <div class="footer-inner">
-                <nav class="footer-path">
-                    <a href="../about_me.html">about</a><span class="sep">/</span>
-                    <a href="../articles.html">articles</a><span class="sep">/</span>
-                    <a href="mailto:william.awe06@ed.cna.nl.ca">contact</a>
-                </nav>
-                <p class="footer-legal"><span class="copy">&copy;</span> william awe 2026 &nbsp;&middot;&nbsp; <span class="attr-full">icons used in this website were gotten from icon 8</span><span class="attr-short">icons from Icon8</span></p>
+                <div class="footer-columns">
+                    <nav class="footer-pages" aria-labelledby="footer-nav-title">
+                        <h2 class="footer-heading" id="footer-nav-title">Navigation</h2>
+                        <ul class="footer-list">
+                            <li><a class="icon-home" href="../index.html"><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="roof" d="M5 12l-2 0l9 -9l9 9l-2 0"/><path class="house" d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"/><path class="door" d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"/></svg><span>home</span></a></li>
+                            <li><a class="icon-user" href="../about_me.html"><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle class="head" cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg><span>about</span></a></li>
+                            <li><a class="icon-book" href="../articles.html"><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="4" stroke-miterlimit="10" stroke-linecap="square" aria-hidden="true"><path d="M24 40.5V41L24 10V10.5"/><path d="M24 41C31.0005 36.9995 37.9995 36.9995 45 41V10.0003C37.9995 5.99989 31.0005 5.99989 24 10.0003C16.9995 5.99989 10.0005 5.99989 3 10.0003V41C10.0005 36.9995 16.9995 36.9995 24 41Z"/><path class="book-line book-line-1" pathLength="1" d="M30 16.5C32.8362 15.1345 36.5662 15.06 39.5 16.2763"/><path class="book-line book-line-2" pathLength="1" d="M30 23.5832C32.8362 22.2178 36.5662 22.1432 39.5 23.3596"/><path class="book-line book-line-3" pathLength="1" d="M30 30.6665C32.8362 29.301 36.5662 29.2265 39.5 30.4428"/></svg><span>written works</span></a></li>
+                            <li><a class="icon-mail footer-say-hi" href="mailto:william.awe06@ed.cna.nl.ca" data-contact><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="hand" d="M16 14v2.2l1.6 1"/><path d="m22 7-.759.484"/><path d="M6.835 20H4a2 2 0 01-2-2V6a2 2 0 012-2h16a2 2 0 012 2v2"/><path d="M7.605 10.567 2 7"/><circle cx="16" cy="16" r="6"/></svg><span>say hi</span></a></li>
+                        </ul>
+                    </nav>
+                    <div class="footer-socials">
+                        <h2 class="footer-heading">Socials</h2>
+                        <ul class="footer-list">
+                            <li><a class="social icon-linkedin" href="https://www.linkedin.com/in/williamawe/"><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="lines" pathLength="1" d="M8 11v5"/><path class="lines" pathLength="1" d="M8 8v.01"/><path class="lines" pathLength="1" d="M12 16v-5"/><path class="lines" pathLength="1" d="M16 16v-3a2 2 0 1 0 -4 0"/><path class="border" d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z"/></svg><span>LinkedIn</span><span class="social-arrow" aria-hidden="true">&#8599;</span></a></li>
+                            <li><a class="social icon-github" href="https://github.com/william-ay"><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g class="github-shape"><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"/></g></svg><span>GitHub</span><span class="social-arrow" aria-hidden="true">&#8599;</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>© william awe 2026</p>
+                    <p>all icons from itshover &amp; lucide</p>
+                </div>
             </div>
         </footer>
-        <script src="../js/index.js"></script>
+        <dialog class="contact-dialog" id="contact-dialog" aria-labelledby="contact-title">
+            <button class="contact-close" type="button" aria-label="Close">&times;</button>
+            <h2 class="contact-title" id="contact-title">Send me a message</h2>
+            <form class="contact-form" id="contact-form">
+                <label for="contact-subject">Subject <span aria-hidden="true">*</span></label>
+                <input id="contact-subject" name="subject" type="text" pattern=".*\S.*" title="Enter a subject for your message" required autofocus>
+                <label for="contact-body">Body <span aria-hidden="true">*</span></label>
+                <textarea id="contact-body" name="body" rows="4" title="Write your message, at least 10 characters" required></textarea>
+                <button class="contact-send" type="submit">OPEN IN EMAIL</button>
+            </form>
+            <div class="contact-socials">
+                <a class="icon-linkedin" href="https://www.linkedin.com/in/williamawe/" aria-label="LinkedIn"><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="lines" pathLength="1" d="M8 11v5"/><path class="lines" pathLength="1" d="M8 8v.01"/><path class="lines" pathLength="1" d="M12 16v-5"/><path class="lines" pathLength="1" d="M16 16v-3a2 2 0 1 0 -4 0"/><path class="border" d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z"/></svg></a>
+                <a class="icon-github" href="https://github.com/william-ay" aria-label="GitHub"><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g class="github-shape"><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"/></g></svg></a>
+            </div>
+        </dialog>
+        <script src="../js/nav.js"></script>
+        <script src="../js/contact.js"></script>
     </body>
 </html>

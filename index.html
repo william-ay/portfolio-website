@@ -5,133 +5,218 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>William Awe</title>
+        <meta name="description" content="I&#x27;m William, a software development student who learns by building. Come see what I&#x27;ve made so far.">
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="William Awe">
+        <meta property="og:title" content="William Awe">
+        <meta property="og:description" content="I&#x27;m William, a software development student who learns by building. Come see what I&#x27;ve made so far.">
+        <meta property="og:url" content="https://william-awe-portfolio.vercel.app/">
+        <meta property="og:image" content="https://william-awe-portfolio.vercel.app/images/preview.png">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:image:alt" content="William Awe: I build small, working projects for the web.">
+        <meta name="twitter:card" content="summary_large_image">
         <link rel="stylesheet" href="css/styles.css">
-        <link rel="icon" href="images/icons/logo.png">
+        <link rel="icon" href="images/icons/favicon.png">
+        <link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Patrick+Hand&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     </head>
     <body>
         <header>
-            <p class="logo-text"><a href="index.html">william awe</a></p>
-            <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
-                <span></span><span></span><span></span>
-            </button>
-            <nav class="nav-bar" id="nav-menu">
-                <ul>
-                    <li class=""><a href="about_me.html" target="_self">about</a></li>
-                    <li class=""><a href="articles.html">articles</a></li>
-                    <li class=""><a href="mailto:william.awe06@ed.cna.nl.ca">contact</a></li>
-                </ul>
+            <a class="logo" href="index.html">william awe</a>
+            <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg></button>
+            <nav class="nav-bar" id="site-nav" aria-label="Main">
+                <a class="nav-home icon-home" href="index.html" aria-label="Home" aria-current="page"><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="roof" d="M5 12l-2 0l9 -9l9 9l-2 0"/><path class="house" d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"/><path class="door" d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"/></svg><span class="nav-extra">home</span></a>
+                <a class="icon-user" href="about_me.html"><svg class="icon nav-icon-copy" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle class="head" cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg><span>about<span class="nav-extra"> me</span></span></a>
+                <a class="icon-book" href="articles.html"><svg class="icon nav-icon-copy" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="4" stroke-miterlimit="10" stroke-linecap="square" aria-hidden="true"><path d="M24 40.5V41L24 10V10.5"/><path d="M24 41C31.0005 36.9995 37.9995 36.9995 45 41V10.0003C37.9995 5.99989 31.0005 5.99989 24 10.0003C16.9995 5.99989 10.0005 5.99989 3 10.0003V41C10.0005 36.9995 16.9995 36.9995 24 41Z"/><path class="book-line book-line-1" pathLength="1" d="M30 16.5C32.8362 15.1345 36.5662 15.06 39.5 16.2763"/><path class="book-line book-line-2" pathLength="1" d="M30 23.5832C32.8362 22.2178 36.5662 22.1432 39.5 23.3596"/><path class="book-line book-line-3" pathLength="1" d="M30 30.6665C32.8362 29.301 36.5662 29.2265 39.5 30.4428"/></svg><span>written works</span></a>
+                <a class="nav-contact icon-mail" href="mailto:william.awe06@ed.cna.nl.ca" data-contact><svg class="icon nav-icon-copy" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="hand" d="M16 14v2.2l1.6 1"/><path d="m22 7-.759.484"/><path d="M6.835 20H4a2 2 0 01-2-2V6a2 2 0 012-2h16a2 2 0 012 2v2"/><path d="M7.605 10.567 2 7"/><circle cx="16" cy="16" r="6"/></svg><span>contact me</span></a>
             </nav>
         </header>
         <main>
-            <section class="about-me">
-                <div class="about-me-text">
-                    <h1 id="typing" data-text="Hi I'm William.">Hi I'm William.</h1>
-                    <p>I’m a first-year software development student who's passionate about learning new languages and using them to build projects. Currently focused on expanding my portfolio and mastering new languages.</p>
-                    <p class="about-languages"><span class="bolden">Languages:</span> Python, SQL, HTML, CSS, Javascript</p>
-                    <p class="about-skills"><span class="bolden">Skills:</span> Web Development, System Analysis, Database Management</p>
+            <section class="hero">
+                <div class="hero-text">
+                    <p class="note note-tilt">hey, you found me!</p>
+                    <h1>I'm William, and I build things for the web.</h1>
+                    <p class="hero-lead">2nd year software development student at the College of the North Atlantic. I like turning ideas into <span class="highlight">small, working projects</span>: a chess game you can play, a password manager and whatever I'm learning next.</p>
+                    <div class="toolbox">
+                        <span class="toolbox-label">my toolbox:</span>
+                        <ul class="toolbox-list">
+                            <li class="toolbox-item"><img src="images/skills/github.png" alt="" width="224" height="216"><span>GitHub</span></li>
+                            <li class="toolbox-item"><img src="images/skills/java.png" alt="" width="162" height="216"><span>Java</span></li>
+                            <li class="toolbox-item"><img src="images/skills/javascript.png" alt="" width="197" height="216"><span>JavaScript</span></li>
+                            <li class="toolbox-item"><img src="images/skills/vs-code.png" alt="" width="217" height="216"><span>VS Code</span></li>
+                            <li class="toolbox-item"><img src="images/skills/system-design.png" alt="" width="332" height="216"><span>System design</span></li>
+                        </ul>
+                    </div>
+                    <div class="hero-buttons">
+                        <a class="btn btn-dark" href="https://github.com/william-ay"><span class="btn-shake">GitHub<svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21L21 3"/><path d="M12 3h9v9"/></svg></span></a>
+                        <a class="btn btn-light" href="https://www.linkedin.com/in/williamawe/"><span class="btn-shake">LinkedIn<svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21L21 3"/><path d="M12 3h9v9"/></svg></span></a>
+                    </div>
                 </div>
-                <div class="bout-links">
-                <ul class="about-me-link">
-                    <li class="about-me-links"><a href="https://github.com/william-ay"><span class="lbl-full">GitHub</span><span class="lbl-short">GitHub</span><img src="images/icons/icon3.png" alt="arrow icon for about section link"></a></li>
-                    <li class="about-me-links"><a href="https://www.linkedin.com/in/williamawe/"><span class="lbl-full">LinkedIn</span><span class="lbl-short">LinkedIn</span><img src="images/icons/icon3.png" alt="arrow icon for about section link"></a></li>
-                    <li class="about-me-links"><a href="about_me.html"><span class="lbl-full">More About Me</span><span class="lbl-short">About Me</span><img src="images/icons/icon3.png" alt="arrow icon for about section link"></a></li>
-                </ul></div>
-            </section>
-            <section class="home-articles">
-                <h2 class="home-articles-heading">Articles</h2>
-                <div class="home-article-list">
-                    <a class="article-card" href="articles/multisig-wallets.html">
-                        <img class="article-thumb" src="images/proj-images/proj.jpg" alt="">
-                        <div class="article-body">
-                            <div class="article-head">
-                                <h3>What is a multisig wallet?</h3>
-                                <p class="article-card-date">June 28, 2026</p>
-                            </div>
-                            <p class="article-card-brief">A crypto wallet that needs more than one key to approve a transaction, and why teams and treasuries rely on it.</p>
-                        </div>
-                    </a>
-                    <a class="article-card" href="articles/connecting-a-domain.html">
-                        <img class="article-thumb" src="images/proj-images/proj.jpg" alt="">
-                        <div class="article-body">
-                            <div class="article-head">
-                                <h3>How to connect a domain to your website</h3>
-                                <p class="article-card-date">June 3, 2026</p>
-                            </div>
-                            <p class="article-card-brief">From buying a domain to editing DNS records, the full path to getting your site on your own name.</p>
-                        </div>
-                    </a>
+                <div class="hero-photo">
+                    <div class="photo-stack">
+                        <figure class="polaroid">
+                            <div class="tape polaroid-tape" aria-hidden="true"></div>
+                            <img src="images/william.jpg" alt="Illustrated portrait of William" width="460" height="460">
+                            <figcaption>me, mid-debug</figcaption>
+                        </figure>
+                        <p class="sticker">software dev · yr 2</p>
+                    </div>
                 </div>
-                <p class="home-articles-more"><a href="articles.html">view all articles</a></p>
             </section>
+
             <section class="projects">
-                <h2 class="project-heading">Projects</h2>
-                <div class="project-containers">
-                    <div class="project-card" data-modal="modal-smarthome" tabindex="0">
-                        <div class="project-image"><img src="images/proj-images/smarthome.png" alt=""></div>
-                        <p class="project-name">Smart Home Activity Diagram</p>
+                <div class="section-head">
+                    <h2>Things I've built</h2>
+                    <p class="note-small">(more on the way)</p>
+                </div>
+
+                <div class="project-carousel">
+                    <div class="project-viewport">
+                        <div class="project-track">
+                            <article class="project">
+                                <div class="project-col">
+                                    <div class="shot shot-chess">
+                                        <div class="tape tape-chess" aria-hidden="true"></div>
+                                        <img src="images/proj-images/chess-menu.png" alt="Chess app start menu" width="2000" height="1000">
+                                    </div>
+                                    <p class="note-small note-favourite">my favourite one</p>
+                                </div>
+                                <div class="project-info">
+                                    <p class="kicker">01 / browser game</p>
+                                    <h3>Chess App</h3>
+                                    <p class="project-desc">A full chess game that runs in the browser. You can play against an AI opponent with adjustable difficulty, and there's a built-in guide if you're new to the game.</p>
+                                    <p class="stack">javascript · chess.js · stockfish</p>
+                                    <button class="project-link" type="button" data-modal="modal-chess">Play a game</button>
+                                </div>
+                            </article>
+
+                            <article class="project project-reverse">
+                                <div class="project-info">
+                                    <p class="kicker">02 / desktop tool</p>
+                                    <h3>Password Manager</h3>
+                                    <p class="project-desc">A GUI password manager I built for my first-year Intro to Python final project.</p>
+                                    <p class="stack">python</p>
+                                    <a class="project-link" href="https://github.com/william-ay/password-manager-python">Read the code</a>
+                                </div>
+                                <div class="shot shot-password">
+                                    <div class="tape tape-password" aria-hidden="true"></div>
+                                    <img src="images/proj-images/password_manager.jpg" alt="Password manager" width="1600" height="906">
+                                </div>
+                            </article>
+
+                            <article class="project">
+                                <div class="shot shot-smarthome">
+                                    <div class="tape tape-smarthome" aria-hidden="true"></div>
+                                    <img src="images/proj-images/smarthome-crop.jpg" alt="Smart home activity diagram" width="1280" height="800">
+                                </div>
+                                <div class="project-info">
+                                    <p class="kicker">03 / systems analysis</p>
+                                    <h3>Smart Home Activity Diagram</h3>
+                                    <p class="project-desc">A UML activity diagram mapping how a smart home system responds to people and to automated triggers, from the first input to the device's response.</p>
+                                    <p class="stack">uml · system design</p>
+                                    <a class="project-link" href="https://ipfs.io/ipfs/bafkreibuzrc6mdvkqzn4p5xhqclgrow5b65mjlixkmaqpyp23tu32mxqu4">See the diagram</a>
+                                </div>
+                            </article>
+                        </div>
                     </div>
-                    <div class="project-card" data-modal="modal-chess" tabindex="0">
-                        <div class="project-image"><img src="images/proj-images/chess-menu.png" alt=""></div>
-                        <p class="project-name">Chess App</p>
-                    </div>
-                    <div class="project-card" data-modal="modal-password" tabindex="0">
-                        <div class="project-image"><img src="images/proj-images/password_manager.jpg" alt=""></div>
-                        <p class="project-name">Password Manager</p>
+                    <div class="project-controls">
+                        <button class="project-arrow project-prev" type="button" aria-label="Previous project">&#8592;</button>
+                        <p class="project-count">1 / 3</p>
+                        <button class="project-arrow project-next" type="button" aria-label="Next project">&#8594;</button>
                     </div>
                 </div>
             </section>
-            <section class="certifications">
-                <h2 class="cert-heading">Certifications</h2>
-                <div class="cert-containers">
-                    <div>
-                        <img src="images/proj.jpg" alt="">
-                    </div>
-                    <div>
-                        <img src="images/proj.jpg" alt="">
-                    </div>
-                    <div>
-                        <img src="images/proj.jpg" alt="">
-                    </div>
+
+            <section class="writing">
+                <div class="section-head">
+                    <h2>Pieces I wrote</h2>
+                </div>
+                <div class="notes-box">
+                    <a class="note-row" href="articles/multisig-wallets.html">
+                        <p class="note-date">jun 28, 2026</p>
+                        <div class="note-body">
+                            <div class="note-picture" aria-hidden="true"></div>
+                            <h3>What is a multisig wallet?</h3>
+                            <p>A crypto wallet that needs more than one key to approve a transaction, and why teams and treasuries rely on it.</p>
+                            <span class="read-more">read more</span>
+                        </div>
+                    </a>
+                    <a class="note-row" href="articles/connecting-a-domain.html">
+                        <p class="note-date">jun 3, 2026</p>
+                        <div class="note-body">
+                            <div class="note-picture" aria-hidden="true"></div>
+                            <h3>How to connect a domain to your website</h3>
+                            <p>From buying a domain to editing DNS records, the full path to getting your site on your own name.</p>
+                            <span class="read-more">read more</span>
+                        </div>
+                    </a>
+                    <a class="note-row" href="articles/var-let-const.html">
+                        <p class="note-date">may 12, 2026</p>
+                        <div class="note-body">
+                            <div class="note-picture" aria-hidden="true"></div>
+                            <h3>The difference between var, let, and const</h3>
+                            <p>How JavaScript's three declaration keywords differ in scope, hoisting, and reassignment.</p>
+                            <span class="read-more">read more</span>
+                        </div>
+                    </a>
+                    <a class="all-articles" href="articles.html">view all written works</a>
                 </div>
             </section>
         </main>
-        <div class="modal" id="modal-smarthome">
-            <div class="modal-box">
-                <button class="modal-close" data-close aria-label="Close">&times;</button>
-                <h3>Smart Home Activity Diagram</h3>
-                <p>An activity diagram that models how a smart home system reacts to user actions and automated triggers, mapping the flow from input to device response.</p>
-                <a class="modal-btn" href="https://ipfs.io/ipfs/bafkreibuzrc6mdvkqzn4p5xhqclgrow5b65mjlixkmaqpyp23tu32mxqu4" target="_blank" rel="noopener">View the document</a>
-            </div>
-        </div>
+
         <div class="modal" id="modal-chess">
             <div class="modal-box modal-box-chess">
                 <div id="chess-root"></div>
             </div>
         </div>
-        <div class="modal" id="modal-password">
-            <div class="modal-box">
-                <button class="modal-close" data-close aria-label="Close">&times;</button>
-                <h3>Password Manager</h3>
-                <p>A password manager for storing and organising login details. The full source code is available on GitHub.</p>
-                <a class="modal-btn" href="https://github.com/william-ay/password-manager-python" target="_blank" rel="noopener">View on GitHub</a>
-            </div>
-        </div>
-        <footer>
+
+        <footer id="contact">
             <div class="footer-inner">
-                <nav class="footer-path">
-                    <a href="about_me.html">about</a><span class="sep">/</span>
-                    <a href="articles.html">articles</a><span class="sep">/</span>
-                    <a href="mailto:william.awe06@ed.cna.nl.ca">contact</a>
-                </nav>
-                <p class="footer-legal"><span class="copy">&copy;</span> william awe 2026 &nbsp;&middot;&nbsp; <span class="attr-full">icons used in this website were gotten from icon 8</span><span class="attr-short">icons from Icon8</span></p>
+                <div class="footer-columns">
+                    <nav class="footer-pages" aria-labelledby="footer-nav-title">
+                        <h2 class="footer-heading" id="footer-nav-title">Navigation</h2>
+                        <ul class="footer-list">
+                            <li><a class="icon-home" href="index.html"><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="roof" d="M5 12l-2 0l9 -9l9 9l-2 0"/><path class="house" d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"/><path class="door" d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"/></svg><span>home</span></a></li>
+                            <li><a class="icon-user" href="about_me.html"><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle class="head" cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg><span>about</span></a></li>
+                            <li><a class="icon-book" href="articles.html"><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="4" stroke-miterlimit="10" stroke-linecap="square" aria-hidden="true"><path d="M24 40.5V41L24 10V10.5"/><path d="M24 41C31.0005 36.9995 37.9995 36.9995 45 41V10.0003C37.9995 5.99989 31.0005 5.99989 24 10.0003C16.9995 5.99989 10.0005 5.99989 3 10.0003V41C10.0005 36.9995 16.9995 36.9995 24 41Z"/><path class="book-line book-line-1" pathLength="1" d="M30 16.5C32.8362 15.1345 36.5662 15.06 39.5 16.2763"/><path class="book-line book-line-2" pathLength="1" d="M30 23.5832C32.8362 22.2178 36.5662 22.1432 39.5 23.3596"/><path class="book-line book-line-3" pathLength="1" d="M30 30.6665C32.8362 29.301 36.5662 29.2265 39.5 30.4428"/></svg><span>written works</span></a></li>
+                            <li><a class="icon-mail footer-say-hi" href="mailto:william.awe06@ed.cna.nl.ca" data-contact><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="hand" d="M16 14v2.2l1.6 1"/><path d="m22 7-.759.484"/><path d="M6.835 20H4a2 2 0 01-2-2V6a2 2 0 012-2h16a2 2 0 012 2v2"/><path d="M7.605 10.567 2 7"/><circle cx="16" cy="16" r="6"/></svg><span>say hi</span></a></li>
+                        </ul>
+                    </nav>
+                    <div class="footer-socials">
+                        <h2 class="footer-heading">Socials</h2>
+                        <ul class="footer-list">
+                            <li><a class="social icon-linkedin" href="https://www.linkedin.com/in/williamawe/"><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="lines" pathLength="1" d="M8 11v5"/><path class="lines" pathLength="1" d="M8 8v.01"/><path class="lines" pathLength="1" d="M12 16v-5"/><path class="lines" pathLength="1" d="M16 16v-3a2 2 0 1 0 -4 0"/><path class="border" d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z"/></svg><span>LinkedIn</span><span class="social-arrow" aria-hidden="true">&#8599;</span></a></li>
+                            <li><a class="social icon-github" href="https://github.com/william-ay"><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g class="github-shape"><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"/></g></svg><span>GitHub</span><span class="social-arrow" aria-hidden="true">&#8599;</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>© william awe 2026</p>
+                    <p>all icons from itshover &amp; lucide</p>
+                </div>
             </div>
         </footer>
+        <dialog class="contact-dialog" id="contact-dialog" aria-labelledby="contact-title">
+            <button class="contact-close" type="button" aria-label="Close">&times;</button>
+            <h2 class="contact-title" id="contact-title">Send me a message</h2>
+            <form class="contact-form" id="contact-form">
+                <label for="contact-subject">Subject <span aria-hidden="true">*</span></label>
+                <input id="contact-subject" name="subject" type="text" pattern=".*\S.*" title="Enter a subject for your message" required autofocus>
+                <label for="contact-body">Body <span aria-hidden="true">*</span></label>
+                <textarea id="contact-body" name="body" rows="4" title="Write your message, at least 10 characters" required></textarea>
+                <button class="contact-send" type="submit">OPEN IN EMAIL</button>
+            </form>
+            <div class="contact-socials">
+                <a class="icon-linkedin" href="https://www.linkedin.com/in/williamawe/" aria-label="LinkedIn"><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="lines" pathLength="1" d="M8 11v5"/><path class="lines" pathLength="1" d="M8 8v.01"/><path class="lines" pathLength="1" d="M12 16v-5"/><path class="lines" pathLength="1" d="M16 16v-3a2 2 0 1 0 -4 0"/><path class="border" d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z"/></svg></a>
+                <a class="icon-github" href="https://github.com/william-ay" aria-label="GitHub"><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g class="github-shape"><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"/></g></svg></a>
+            </div>
+        </dialog>
         <script src="js/index.js"></script>
         <script type="module" src="js/chess-app.js"></script>
+        <script src="js/nav.js"></script>
+        <script src="js/contact.js"></script>
     </body>
 </html>
