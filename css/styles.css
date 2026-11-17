@@ -41,6 +41,10 @@ img {
     height: auto;
 }
 
+[hidden] {
+    display: none !important;
+}
+
 a,
 button,
 input,

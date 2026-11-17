@@ -41,6 +41,10 @@ img {
     height: auto;
 }
 
+[hidden] {
+    display: none !important;
+}
+
 a,
 button,
 input,
@@ -869,8 +873,14 @@ main {
 }
 
 .lost-text .btn {
-    max-width: none;
+    max-width: 320px;
     white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+    .lost-text .btn {
+        max-width: none;
+    }
 }
 
 .contact-dialog {
